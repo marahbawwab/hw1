@@ -1,6 +1,6 @@
 <project default="test">
-<property name ="src.java.dir" location="C:\Program Files (x86)\Jenkins\workspace\library"/>
-<property name ="src.test.dir" location="C:\Program Files (x86)\Jenkins\workspace\library\src\library"/>
+<property name ="src.java.dir" location="F:\Documents\Desktop\UsedLibraries"/>
+<property name ="src.test.dir" location="F:\Documents\Desktop\UsedLibraries\src\library"/>
 <property name ="result.dir" location="./target"/>
 <property name ="result.javaclasses.dir" location="${result.dir}/classes"/>
 <property name ="result.testclasses.dir" location="${result.dir}/testclasses"/>
