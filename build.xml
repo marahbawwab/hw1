@@ -1,35 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="test">
-<property name ="src.java.dir" location="F:\Documents\Desktop\UsedLibraries"/>
-<property name ="src.test.dir" location="F:\Documents\Desktop\UsedLibraries\src\library"/>
-<property name ="result.dir" location="./target"/>
-<property name ="result.javaclasses.dir" location="${result.dir}/classes"/>
-<property name ="result.testclasses.dir" location="${result.dir}/testclasses"/>
-<property name ="result.jar.file" location="./"/>
-<target name="compile">
-            <mkdir dir ="${result.javaclasses.dir}"/>
-            <javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false" classpath=" C:\Users\User\eclipse\java-oxygen\eclipse\plugins\junit-4.12.jar">
-            </javac>
-</target>
-<!-- comment Make jar or executable product -->
-<target name ="jar" depends ="compile">
-          <jar destfile="${result.javaclasses.dir}">
-                   <fileset dir ="${result.jar.file}">
-           </fileset>
-              </jar>
-        </target>
-        
-        <path id="NecessaryLibraries">
-        <pathelement location="F:\Documents\Desktop\UsedLibraries/junit-4.12.jar"/>
+<project default ="everything">
+<property name="src.java.dir" location="C:\Users\User\eclipse-workspace\hwsoft\src\codes"/>
+<property name="src.test.dir" location="C:\Users\User\eclipse-workspace\hwsoft\src\testing"/>
+<property name="result.dir" location="./target"/>
+<property name="result.javaclasses.dir" location="${result.dir}/classes"/>
+<property name="result.testclasses.dir" location="${result.dir}/testclasses"/>
+<property name="result.jar.file" location="./MyProduct.jar"/>
+
+<path id="NecessaryLibraries">
+        <pathelement location="C:\Users\User\eclipse\java-oxygen\eclipse\plugins\junit-4.12.jar"/>
         <!--matcher-->
-        <pathelement location="F:\Documents\Desktop\UsedLibraries/hamcrest-core-1.3.jar"/>
-        <!--<pathelement location="F:\Documents\Desktop\jacocoant.jar"/>-->
+        <pathelement location="C:\Users\User\eclipse\java-oxygen\eclipse\plugins\hamcrest-core-1.3.jar"/>
+        <!--<pathelement location="C:\eclipse\plugins\org.jacoco.ant-0.8.3.jar"/>-->
     </path>
-    
-        
-    <target name="compile-testcases" depends="compile">
+
+	<target name="everything" depends="compile,jar,compile-testcases,test">
+		</target>
+		
+<target name="compile">
+<mkdir dir="${result.javaclasses.dir}"/>
+<javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false" classpath="C:\Users\User\eclipse\java-oxygen\eclipse\plugins\junit-4.12.jar">
+</javac>
+</target>
+
+<target name="jar" depends="compile">
+<jar destfile="${result.jar.file}">
+<fileset dir="${result.javaclasses.dir}">
+</fileset>
+</jar>
+</target>
+
+<target name="compile-testcases" depends="compile">
         <mkdir dir="${result.testclasses.dir}"/>
-        <javac srcdir="${src.test.dir}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false" classpath=" C:\Users\User\eclipse\java-oxygen\eclipse\plugins\junit-4.12.jar">
+        <javac srcdir="${src.test.dir}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false" classpath="C:\Users\User\eclipse\java-oxygen\eclipse\plugins\junit-4.12.jar">
             <classpath>
                 
                 <path refid="NecessaryLibraries"/>
@@ -38,7 +41,7 @@
         </javac>        
     </target>
     
-    <target name="test" depends="compile-testcases">
+  <target name="test" depends="compile-testcases">
         <!--fork : each test will run in its own JVM (to seperate test cases)-->
         <junit printsummary="true" haltonfailure="true" fork="true">
             <classpath>
@@ -55,5 +58,5 @@
             
         </junit>
     </target>
-
+    
 </project>
