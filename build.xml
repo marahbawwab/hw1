@@ -8,7 +8,7 @@
 <property name ="result.jar.file" location="./"/>
 <target name="compile">
             <mkdir dir ="${result.javaclasses.dir}"/>
-            <javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false" classpath=" C:\Users\User\eclipse-workspace\hwsoft\Test/junit-4.12.jar">
+            <javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false" classpath=" C:\Users\User\eclipse\java-oxygen\eclipse\plugins\junit-4.12.jar">
             </javac>
 </target>
 <!-- comment Make jar or executable product -->
@@ -29,7 +29,7 @@
         
     <target name="compile-testcases" depends="compile">
         <mkdir dir="${result.testclasses.dir}"/>
-        <javac srcdir="${src.test.dir}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false" classpath=" F:\Documents\Desktop\UsedLibraries/junit-4.12.jar">
+        <javac srcdir="${src.test.dir}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false" classpath=" C:\Users\User\eclipse\java-oxygen\eclipse\plugins\junit-4.12.jar">
             <classpath>
                 
                 <path refid="NecessaryLibraries"/>
