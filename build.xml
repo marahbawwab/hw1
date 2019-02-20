@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project default="test">
 <property name ="src.java.dir" location="F:\Documents\Desktop\UsedLibraries"/>
 <property name ="src.test.dir" location="F:\Documents\Desktop\UsedLibraries\src\library"/>
@@ -7,7 +8,7 @@
 <property name ="result.jar.file" location="./"/>
 <target name="compile">
             <mkdir dir ="${result.javaclasses.dir}"/>
-            <javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false" classpath=" C:\Users\Technipal\eclipse-workspace\library\myFrameworks/junit-4.12.jar">
+            <javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false" classpath=" C:\Users\User\eclipse-workspace\hwsoft\Test/junit-4.12.jar">
             </javac>
 </target>
 <!-- comment Make jar or executable product -->
@@ -22,7 +23,7 @@
         <pathelement location="F:\Documents\Desktop\UsedLibraries/junit-4.12.jar"/>
         <!--matcher-->
         <pathelement location="F:\Documents\Desktop\UsedLibraries/hamcrest-core-1.3.jar"/>
-        <!--<pathelement location="F:\Documents\Desktop\jacocoant/jacocoant.jar"/>-->
+        <!--<pathelement location="F:\Documents\Desktop\jacocoant.jar"/>-->
     </path>
     
         
