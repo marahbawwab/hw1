@@ -1,14 +1,34 @@
-<path id="NecessaryLibraries">
-        <pathelement location="F:\Documents\Desktop\UsedLibraries/UsedLibraries/junit-4.12.jar"/>
+<project default="test">
+<property name ="src.java.dir" location="C:\Program Files (x86)\Jenkins\workspace\library"/>
+<property name ="src.test.dir" location="C:\Program Files (x86)\Jenkins\workspace\library\src\library"/>
+<property name ="result.dir" location="./target"/>
+<property name ="result.javaclasses.dir" location="${result.dir}/classes"/>
+<property name ="result.testclasses.dir" location="${result.dir}/testclasses"/>
+<property name ="result.jar.file" location="./"/>
+<target name="compile">
+            <mkdir dir ="${result.javaclasses.dir}"/>
+            <javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false" classpath=" C:\Users\Technipal\eclipse-workspace\library\myFrameworks/junit-4.12.jar">
+            </javac>
+</target>
+<!-- comment Make jar or executable product -->
+<target name ="jar" depends ="compile">
+          <jar destfile="${result.javaclasses.dir}">
+                   <fileset dir ="${result.jar.file}">
+           </fileset>
+              </jar>
+        </target>
+        
+        <path id="NecessaryLibraries">
+        <pathelement location="F:\Documents\Desktop\UsedLibraries/junit-4.12.jar"/>
         <!--matcher-->
-        <pathelement location="F:\Documents\Desktop\UsedLibraries/UsedLibraries/hamcrest-core-1.3.jar"/>
-        <!--<pathelement location="./UsedLibraries/jacocoant.jar"/>-->
+        <pathelement location="F:\Documents\Desktop\UsedLibraries/hamcrest-core-1.3.jar"/>
+        <!--<pathelement location="C:\Program Files (x86)\Jenkins\workspace\library\myFrameworks/jacocoant.jar"/>-->
     </path>
     
         
     <target name="compile-testcases" depends="compile">
         <mkdir dir="${result.testclasses.dir}"/>
-        <javac srcdir="${src.test.dir}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false">
+        <javac srcdir="${src.test.dir}"  destdir="${result.testclasses.dir}" debug="true" includeantruntime="false" classpath=" F:\Documents\Desktop\UsedLibraries/junit-4.12.jar">
             <classpath>
                 
                 <path refid="NecessaryLibraries"/>
@@ -34,3 +54,5 @@
             
         </junit>
     </target>
+
+</project>
